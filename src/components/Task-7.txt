@@ -1,0 +1,27 @@
+Font Family :Poppins
+link: https://fonts.google.com/specimen/Poppins
+
+Font Size - 
+H1 :28px
+H2 :24px
+H3 :30px
+H4 :20px
+H5 :16px
+H6 :28px
+H7 :11px
+
+Colours :
+card-1 : CFDDDB
+card-2 :E4CDEE
+card-3 :C2DBE9
+card-4 :C9CAEE
+card-5 :FAC2D9
+card-6 :E6DADE
+card-7 :F0C8CF
+card-8 :C3E9DE
+Green:84C27D
+2D2D2D -100%
+2D2D2D -70%
+747474 -100%
+A6A6A6 -100%
+8E8E8E -100%
