@@ -109,7 +109,31 @@ function menu() {
       </Wrapper>
       <Line />
 
-      
+
+     
+
+      <Food>
+        <Head>
+          <Tittle>Orders</Tittle>
+          <ArrowDiv>
+            <Arrow src={require("../assets/images/arrow.svg").default} />
+          </ArrowDiv>
+          <Tittle>Kitchen</Tittle>
+        </Head>
+        <foodDetail>
+          <Name></Name>
+          <Price></Price>
+        </foodDetail>
+        <BuyFood>
+          <Minus>
+            <MinusImage src={require("../assets/images/minus.svg").default} />
+          </Minus>
+          <foodAdded></foodAdded>
+          <Plus>
+            <PlusImage src={require("../assets/images/plus.svg").default}/>
+          </Plus>
+        </BuyFood>
+      </Food>
     </MenuContainer>
   );
 }
@@ -144,7 +168,9 @@ const SearchInput = styled.input`
   height: 33px;
   margin: 19px 0px;
   background: #2d2d2d;
-  border-style: none;
+  border: none;
+  outline: none;
+  
 `;
 const Category = styled.ul`
   display: flex;
@@ -179,4 +205,104 @@ const Line = styled.hr`
   border-bottom: 1px solid #2d2d2d;
   width: 80%;
   margin-left: 45px;
+`;
+const Dishes = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+const Food = styled.li`
+  width: 20%;
+  height: 130px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: #2d2d2d;
+    width: 95%;
+    margin-left: 15%;
+    border-radius: 10px;
+    height: 100%;
+    opacity: 1;
+    z-index: 1;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+`;
+const Head = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 12px;
+  padding-top: 4px;
+  margin-left: 50px;
+  color: #8e8e8e;
+  position: relative;
+  z-index: 100;
+`;
+const ArrowDiv = styled.span`
+  width: 20px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+`;
+const Arrow = styled.img`
+  height: 100%;
+  width: 100%;
+`;
+const Tittle = styled.span`
+ 
+`;
+const FoodDetail = styled.div`
+  font-size: 15px;
+  margin: 10px;
+  position: relative;
+  z-index: 100;
+  padding-left: 5px;
+`;
+const Name = styled.h4``;
+const Price = styled.span`
+  color: #8e8e8e;
+`;
+const BuyFood = styled.div`
+  display: flex;
+  position: relative;
+  left: 95px;
+  top: 40px;
+  z-index: 100;
+`;
+const Minus = styled.span`
+  border-radius: 4px;
+  border: .5px solid #8e8e8e;
+  margin-right: 10px;
+  display: flex;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+`;
+const MinusImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+const DishAdded = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+`;
+const Plus = styled.span`
+  border-radius: 4px;
+  border: 1px solid #8e8e8e;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+`;
+const PlusImage = styled.img`
+  width: 100%;
+  height: 100%;
 `;
