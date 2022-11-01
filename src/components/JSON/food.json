@@ -1,0 +1,51 @@
+[
+    {
+        "id":"1",
+        "title":"Fish and Chips",
+        "price":"$7.50",
+        "quantity":0
+    },
+    {
+        "id":"2",
+        "title":"Brosted Chicken",
+        "price":"$7.50",
+        "quantity":0
+    },
+    {
+        "id":"3",
+        "title":"Fillet steak",
+        "price":"$7.50",
+        "quantity":0
+    },
+    {
+        "id":"4",
+        "title":"BeefSteak",
+        "price":"$7.50",
+        "quantity":0
+    },
+    {
+        "id":"5",
+        "title":"Burgger",
+        "price":"$7.50",
+        "quantity":0
+    },
+    {
+        "id":"6",
+        "title":"Chiken Drumstick",
+        "price":"$7.50",
+        "quantity":0
+    },
+    {
+        "id":"7",
+        "title":"Fish fry",
+        "price":"$7.50",
+        "quantity":0
+    },
+    {
+        "id":"8",
+        "title":"Biriyani",
+        "price":"$7.50",
+        "quantity":0
+    }
+
+]

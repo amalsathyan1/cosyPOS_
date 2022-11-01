@@ -84,7 +84,7 @@ const LogoImage = styled.img`
 `;
 
 const MenuListContainer = styled.ul`
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   height: 250px;
@@ -125,7 +125,7 @@ const ListItems = styled.span`
   color: #a6a6a6;
   font-size: 15px;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   padding: 10px;
   :hover {
     color: #fff;
