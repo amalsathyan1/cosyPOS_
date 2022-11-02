@@ -274,16 +274,16 @@ const FoodDetail = styled.div`
   font-size: 15px;
   padding-left: 5px;
 `;
-const Name = styled.h4``;
+const Name = styled.h4`
+  margin-bottom: 5px;
+`;
 const Price = styled.span`
   color: #8e8e8e;
-  
 `;
 const BuyFood = styled.div`
   display: flex;
   position: relative;
-  left: 60px;
-  bottom: 10px;
+  left: 50px;
   z-index: 100;
 `;
 const Substract = styled.span`
@@ -291,8 +291,8 @@ const Substract = styled.span`
   border: 0.5px solid #8e8e8e;
   margin-right: 10px;
   display: flex;
-  width: 30px;
-  height: 20px;
+  width: 25px;
+  height: 18px;
   cursor: pointer;
 `;
 const SubImage = styled.img`
@@ -309,8 +309,8 @@ const Addition = styled.span`
   margin-left: 10px;
   margin-right: 10px;
   display: flex;
-  width: 30px;
-  height: 20px;
+  width: 25px;
+  height: 18px;
   cursor: pointer;
 `;
 const AddImage = styled.img`

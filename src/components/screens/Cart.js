@@ -70,12 +70,14 @@ function Cart() {
 export default Cart;
 
 const CartContainer = styled.aside`
-  width: 30%;
+  width: 25%;
   padding: 10px 0px;
   background: #000;
 `;
 const Wrapper = styled.div``;
-const Container = styled.div``;
+const Container = styled.div`
+  margin-right: 15px;
+`;
 const Head = styled.div`
   display: flex;
   justify-content: space-between;
