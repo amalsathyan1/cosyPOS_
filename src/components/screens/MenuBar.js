@@ -95,7 +95,6 @@ const MenuList = styled.li`
   display: flex;
   flex-direction: column;
   margin-right: 73px;
- 
   list-style: none;
   font-weight: 500;
   width: 82%;
@@ -145,8 +144,8 @@ const Bottom = styled.div`
 `;
 const Users = styled.ul`
   height: 50%;
-  margin: auto 0;
   margin-right: 45px;
+  margin-top: 120px;
 `;
 const User = styled.li`
   margin-bottom: 15px;
@@ -157,14 +156,14 @@ const User = styled.li`
   border: 1px solid #a6a6a6;
   cursor: pointer;
   &:hover {
-    background: #fff;
+    background: #FAC2D9;
     width: 100%;
   }
 `;
 const Letter = styled.span`
   padding: 6px 10px;
   border-radius: 50%;
-  background: #2d2d2d;
+  background: #CFDDDB;
   color: #000;
   font-weight: 500;
   margin-right: 12px;
