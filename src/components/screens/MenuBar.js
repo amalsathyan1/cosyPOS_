@@ -139,6 +139,9 @@ const LinkItems = styled.span`
   margin-bottom: 15px;
   padding: 10px;
   width: 100%;
+  :hover {
+    color: #fff;
+  }
 `;
 
 const Bottom = styled.div`
@@ -195,3 +198,5 @@ const Year = styled.span`
   color: #a6a6a6;
   font-size: 12px;
 `;
+
+

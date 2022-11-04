@@ -9,7 +9,7 @@ import food from "./components/JSON/food.json";
 import Accounting from "./components/screens/comingsoonpages/Accounting";
 import Delivery from "./components/screens/comingsoonpages/Delivery";
 import Reservation from "./components/screens/comingsoonpages/Reservation";
-import TimeServices from "./components/screens/comingsoonpages/TimeServices";
+import TableServices from "./components/screens/comingsoonpages/TableServices";
 import { Helmet } from "react-helmet";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -29,7 +29,7 @@ function App() {
     let isCart = false;
 
     let item = food.find((food) => food.id === id);
-    // console.log(item)
+   
     if (buyItems.length > 0) {
       isCart = buyItems.find((buyItem) => {
         if (buyItem.id === item.id) {
@@ -179,7 +179,7 @@ function App() {
                 path={"/TableServices"}
                 element={[
                   <MenuBar />,
-                  <TimeServices />,
+                  <TableServices />,
                   <Cart buyItems={buyItems} total={total} />,
                 ]}
               />

@@ -434,3 +434,4 @@ const Process = styled.div`
   margin-bottom: 20px;
   color: #000;
 `;
+
