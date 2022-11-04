@@ -23,7 +23,7 @@ function menu({
             <ArrowDiv>
               <Arrow src={require("../assets/images/arrow.svg").default} />
             </ArrowDiv>
-            <Tittle>Kitchen</Tittle>
+            <Tittle>C</Tittle>
           </Head>
           <FoodDetail>
             <Name>{food.title}</Name>
@@ -158,6 +158,63 @@ function menu({
       <Line />
 
       <Foods>{renderFood()}</Foods>
+
+      <Bottom>
+        <Oders>
+          <Order>
+            <Alphabet style={{
+                background: "#c6b1e1",
+                color: "#fff",
+              }}>T4</Alphabet>
+            <Details>
+              <CustomerName>Leslie K.</CustomerName>
+              <CookFood>
+                6 items{" "}
+                <ArrowIcon
+                  src={require("../assets/images/arrow.svg").default}
+                />{" "}
+                CookFood
+              </CookFood>
+            </Details>
+            <Process style={{ display: "none" }}>In process</Process>
+          </Order>
+          <Order>
+            <Alphabet
+              style={{
+                background: "#525151",
+                color: "#fff",
+              }}
+            >
+              T2
+            </Alphabet>
+            <Details>
+              <CustomerName>Leslie K.</CustomerName>
+              <CookFood>
+                6 items{" "}
+                <ArrowIcon
+                  src={require("../assets/images/arrow.svg").default}
+                />{" "}
+                CookFood
+              </CookFood>
+            </Details>
+            <Process>In process</Process>
+          </Order>
+          <Order>
+            <Alphabet style={{ background: "#2d2d2d", color: "#fff" }}>T4</Alphabet>
+            <Details>
+              <CustomerName>Leslie K.</CustomerName>
+              <CookFood>
+                6 items{" "}
+                <ArrowIcon
+                  src={require("../assets/images/arrow.svg").default}
+                />{" "}
+                CookFood
+              </CookFood>
+            </Details>
+            <Process>In process</Process>
+          </Order>
+        </Oders>
+      </Bottom>
     </MenuContainer>
   );
 }
@@ -165,27 +222,28 @@ function menu({
 export default menu;
 
 const MenuContainer = styled.section`
-  width: 60%;
+  width: 62%;
   background: #000;
 `;
 const Wrapper = styled.div``;
 const Container = styled.div``;
 const Header = styled.div`
+  height: 70px;
   display: flex;
-  height: 80px;
-  margin-left: 40px;
+ 
 `;
 const Search = styled.div`
-  width: 30%;
-  margin: 19px 0px;
-  border-radius: 5px;
+  width: 38%;
   display: flex;
   align-items: center;
   background: #2d2d2d;
+  opacity: 0.7;
+  margin: 14px 0px;
+  border-radius: 5px;
 `;
 const SearchIcon = styled.img`
-  height: 22px;
   width: 30px;
+  height: 20px;
 `;
 const SearchInput = styled.input`
   width: 85%;
@@ -197,17 +255,17 @@ const SearchInput = styled.input`
 `;
 const Category = styled.ul`
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 `;
 const Items = styled.li`
-  height: 130px;
-  width: 20%;
-  border-radius: 10px;
-  margin: 7px 5px;
+  width: 24%;
+  height: 140px;
+  margin: 5px 0px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: #2d2d2d;
 `;
 const ImgContainer = styled.div`
   margin-left: 10px;
@@ -219,51 +277,52 @@ const ImgContent = styled.div`
 const Heading = styled.h3`
   color: #000;
   font-weight: 600;
-  margin-bottom: -20px;
 `;
 const ItemNUmber = styled.h5`
   font-size: 14px;
   color: #8e8e8e;
 `;
 const Line = styled.hr`
-  border-bottom: 1px solid #2d2d2d;
-  width: 80%;
-  margin-left: 45px;
+  border-bottom: 1.5px solid #2d2d2d;
+  margin: 5px 0px;
 `;
 const Foods = styled.ul`
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
+  list-style: none;
 `;
 const Food = styled.li`
-  height: 130px;
-  width: 20%;
-  border-radius: 10px;
-  border-radius: 10px;
-  margin: 7px 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  width: 24%;
+  height: 140px;
+  margin: 5px 0px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
   background: #2d2d2d;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background: #2d2d2d;
+  border-left: 8px solid #FAC2D9;
+  :hover{
+    background: #FAC2D9;
+    opacity: calc(1);
+    color: #000;
+    font-weight: 600;
+  }
+ 
 `;
 const Head = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   font-size: 12px;
-  padding-top: 4px;
-  margin-left: 5px;
+  padding-top: 5px;
   color: #8e8e8e;
+  position: relative;
+  z-index: 100;
 `;
 const ArrowDiv = styled.span`
   width: 20px;
   display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
 `;
 const Arrow = styled.img`
   height: 100%;
@@ -272,27 +331,30 @@ const Arrow = styled.img`
 const Tittle = styled.span``;
 const FoodDetail = styled.div`
   font-size: 15px;
+  margin: 10px;
+  position: relative;
+  z-index: 100;
   padding-left: 5px;
 `;
-const Name = styled.h4`
-  margin-bottom: 5px;
-`;
+const Name = styled.h4``;
 const Price = styled.span`
   color: #8e8e8e;
 `;
 const BuyFood = styled.div`
   display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 10px;
   position: relative;
-  left: 50px;
   z-index: 100;
 `;
 const Substract = styled.span`
   border-radius: 4px;
-  border: 0.5px solid #8e8e8e;
+  border: 1px solid #8e8e8e;
   margin-right: 10px;
   display: flex;
-  width: 25px;
-  height: 18px;
+  width: 20px;
+  padding: 2px;
   cursor: pointer;
 `;
 const SubImage = styled.img`
@@ -302,6 +364,7 @@ const SubImage = styled.img`
 const FoodAdded = styled.span`
   font-size: 16px;
   font-weight: 600;
+  color: #fff;
 `;
 const Addition = styled.span`
   border-radius: 4px;
@@ -309,11 +372,65 @@ const Addition = styled.span`
   margin-left: 10px;
   margin-right: 10px;
   display: flex;
-  width: 25px;
-  height: 18px;
+  width: 20px;
+  padding: 2px;
   cursor: pointer;
 `;
 const AddImage = styled.img`
   width: 100%;
   height: 100%;
+`;
+const Bottom = styled.div`
+  margin-top: 20px;
+`;
+const Oders = styled.ul`
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #8e8e8e;
+`;
+const Order = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+  border-right: 1px solid #8e8e8e;
+  padding: 8px 5px;
+  &:first-child {
+    width: 30%;
+  }
+  &:last-child {
+    border: none;
+  }
+  
+`;
+const Alphabet = styled.div`
+  background: #525151;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+`;
+const Details = styled.div`
+  height: 100%;
+`;
+const CustomerName = styled.h4`
+  font-size: 14px;
+  color: #fff;
+  margin-left: 15px;
+`;
+const CookFood = styled.blockquote`
+  font-size: 12px;
+  color: #525151;
+`;
+const ArrowIcon = styled.img`
+  width: 12px;
+`;
+
+const Process = styled.div`
+  font-size: 7px;
+  background: #84c27d;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-bottom: 20px;
+  color: #000;
 `;

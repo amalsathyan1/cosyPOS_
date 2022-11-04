@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+import "./App.css";
 import styled from "styled-components";
 import MenuBar from "./components/screens/MenuBar";
 import Menu from "./components/screens/Menu";
 import Cart from "./components/screens/Cart";
+import PageNotFound from "./components/screens/PageNotFound";
 import food from "./components/JSON/food.json";
+import Accounting from "./components/screens/comingsoonpages/Accounting";
+import Delivery from "./components/screens/comingsoonpages/Delivery";
+import Reservation from "./components/screens/comingsoonpages/Reservation";
+import TimeServices from "./components/screens/comingsoonpages/TimeServices";
+import { Helmet } from "react-helmet";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [buyItems, setBuyItems] = useState([]);
@@ -21,12 +29,14 @@ function App() {
     let isCart = false;
 
     let item = food.find((food) => food.id === id);
+    // console.log(item)
     if (buyItems.length > 0) {
-      isCart = buyItems.find((buyItems) => {
-        if (buyItems.id === item.id) {
-          buyItems.quantity += 1;
-          buyItems.price += item.price;
+      isCart = buyItems.find((buyItem) => {
+        if (buyItem.id === item.id) {
+          buyItem.quantity += 1;
+          buyItem.price += item.price;
           setBuyItems([...buyItems]);
+          console.log(buyItems);
           setTotal(total + item.price);
           eval(`setQuantity${item.id}(quantity${item.id} +1)`);
           console.log(eval(`quantity${item.id}`));
@@ -44,7 +54,8 @@ function App() {
       };
 
       setTotal(total + item.price);
-      setBuyItems([...setBuyItems, newItem]);
+      setBuyItems([...buyItems, newItem]);
+      console.log(buyItems);
       eval(`setQuantity${item.id}(quantity${item.id} + 1)`);
       console.log(eval(`quantity${item.id}`));
     }
@@ -71,19 +82,18 @@ function App() {
 
   let removeFood = (id) => {
     let item = food.find((food) => food.id === id);
-    buyItems.find((buyItems) => {
-      if (buyItems.id === item.id) {
-        if (buyItems.qty === 1) {
+    buyItems.find((buyItem) => {
+      if (buyItem.id === item.id) {
+        if (buyItem.quantity === 1) {
           let newArr = buyItems.filter((i) => {
-            return i.id !== buyItems.id;
+            return i.id !== buyItem.id;
           });
-          console.log(newArr);
           setBuyItems(newArr);
-          eval(`setQty${item.id}(0)`);
+          eval(`setQuantity${item.id}(0)`);
           setTotal(total - item.price);
         } else {
-          buyItems.qty -= 1;
-          buyItems.price -= item.price;
+          buyItem.quantity -= 1;
+          buyItem.price -= item.price;
           setBuyItems([...buyItems]);
           setTotal(total - item.price);
           eval(`setQuantity${item.id}(quantity${item.id} - 1)`);
@@ -96,11 +106,88 @@ function App() {
 
   return (
     <>
-      <MainContainer>
-        <MenuBar />
-        <Menu />
-        <Cart />,
-      </MainContainer>
+      <>
+        <Helmet>
+          <title>CosyPOS</title>
+        </Helmet>
+        <MainContainer>
+          <Router>
+            <Routes>
+              <Route
+                path={"/"}
+                element={[
+                  <MenuBar />,
+                  <Menu
+                    addFood={addFood}
+                    removeFood={removeFood}
+                    quantity1={quantity1}
+                    quantity2={quantity2}
+                    quantity3={quantity3}
+                    quantity4={quantity4}
+                    quantity5={quantity5}
+                    quantity6={quantity6}
+                    quantity7={quantity7}
+                    quantity8={quantity8}
+                  />,
+                  <Cart buyItems={buyItems} total={total} />,
+                ]}
+              />
+              <Route
+                path={"/Menu"}
+                element={[
+                  <MenuBar />,
+                  <Menu
+                    addFood={addFood}
+                    removeFood={removeFood}
+                    quantity1={quantity1}
+                    quantity2={quantity2}
+                    quantity3={quantity3}
+                    quantity4={quantity4}
+                    quantity5={quantity5}
+                    quantity6={quantity6}
+                    quantity7={quantity7}
+                    quantity8={quantity8}
+                  />,
+                  <Cart buyItems={buyItems} total={total} />,
+                ]}
+              />
+              <Route
+                path={"/Accounting"}
+                element={[
+                  <MenuBar />,
+                  <Accounting />,
+                  <Cart buyItems={buyItems} total={total} />,
+                ]}
+              />
+              <Route
+                path={"/Delivery"}
+                element={[
+                  <MenuBar />,
+                  <Delivery />,
+                  <Cart buyItems={buyItems} total={total} />,
+                ]}
+              />
+              <Route
+                path={"/Reservation"}
+                element={[
+                  <MenuBar />,
+                  <Reservation />,
+                  <Cart buyItems={buyItems} total={total} />,
+                ]}
+              />
+              <Route
+                path={"/TableServices"}
+                element={[
+                  <MenuBar />,
+                  <TimeServices />,
+                  <Cart buyItems={buyItems} total={total} />,
+                ]}
+              />
+              <Route path={"*"} element={<PageNotFound />} />
+            </Routes>
+          </Router>
+        </MainContainer>
+      </>
     </>
   );
 }

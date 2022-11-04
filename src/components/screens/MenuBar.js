@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function MenuBar() {
   return (
@@ -16,38 +17,52 @@ function MenuBar() {
               </LogoContainer>
             </Logo>
             <MenuListContainer>
-              <MenuList>
-                <ListItems> Reservation</ListItems>
-
-                <ListItems> Table Services</ListItems>
-
-                <ListItems> Menu</ListItems>
-
-                <ListItems> Delivery</ListItems>
-
-                <ListItems> Accounting</ListItems>
-              </MenuList>
+              <Menu>
+                <Link to="/Menu">
+                  <LinkItems> Menu</LinkItems>
+                </Link>
+              </Menu>
+              <Menu>
+                <Link to="/Reservation">
+                  <LinkItems> Reservation</LinkItems>
+                </Link>
+              </Menu>
+              <Menu>
+                <Link to="/TableServices">
+                  <LinkItems> Table Services</LinkItems>
+                </Link>
+              </Menu>
+              <Menu>
+                <Link to="/Delivery">
+                  <LinkItems> Delivery</LinkItems>
+                </Link>
+              </Menu>
+              <Menu>
+                <Link to="/Accounting">
+                  <LinkItems> Accounting</LinkItems>
+                </Link>
+              </Menu>
             </MenuListContainer>
           </Top>
           <Bottom>
-            <Users>
-              <User>
-                <Letter>L</Letter>
+            <Peoples>
+              <People>
+                <Alpha>L</Alpha>
                 <Name>Lesliya k</Name>
-              </User>
-              <User>
-                <Letter>C</Letter>
+              </People>
+              <People>
+                <Alpha>C</Alpha>
                 <Name>Camaron W.</Name>
-              </User>
-              <User>
-                <Letter>J</Letter>
+              </People>
+              <People>
+                <Alpha>J</Alpha>
                 <Name>Jacob j.</Name>
-              </User>
-            </Users>
-            <Year>
-              <YearLetter>C</YearLetter>
-              <AppYear>2022 CosyPOS App</AppYear>
-            </Year>
+              </People>
+            </Peoples>
+            <Copy>
+              <CopyLetter>C</CopyLetter>
+              <Year>2022 CosyPOS App</Year>
+            </Copy>
           </Bottom>
         </ListContainer>
       </Wrapper>
@@ -59,7 +74,6 @@ export default MenuBar;
 
 const MenuBarContainer = styled.aside`
   width: 18%;
-  background: #000;
 `;
 const Wrapper = styled.div``;
 const ListContainer = styled.div`
@@ -84,19 +98,14 @@ const LogoImage = styled.img`
 `;
 
 const MenuListContainer = styled.ul`
-  margin-top: 20px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   height: 250px;
   justify-content: space-between;
   align-items: center;
 `;
-const MenuList = styled.li`
-  display: flex;
-  flex-direction: column;
-  margin-right: 73px;
-  list-style: none;
-  font-weight: 500;
+const Menu = styled.li`
   width: 82%;
   color: #a6a6a6;
   position: relative;
@@ -114,24 +123,22 @@ const MenuList = styled.li`
     z-index: -1;
     cursor: pointer;
   }
-  
+  :hover {
+    transition: 500ms linear;
+    transform: scale(1.1);
+  }
   :hover::before {
     opacity: 0.7;
     transition: opacity 0.2s ease-out;
   }
 `;
-const ListItems = styled.span`
+const LinkItems = styled.span`
   color: #a6a6a6;
   font-size: 15px;
   margin-left: 20px;
   margin-bottom: 15px;
   padding: 10px;
-  :hover {
-    color: #fff;
-    background: #2d2d2d;
-    border-radius: 6px;
-    
-  }
+  width: 100%;
 `;
 
 const Bottom = styled.div`
@@ -142,28 +149,28 @@ const Bottom = styled.div`
   align-items: center;
   padding-bottom: 15px;
 `;
-const Users = styled.ul`
+const Peoples = styled.ul`
   height: 50%;
+  margin: auto 0;
   margin-right: 45px;
-  margin-top: 120px;
+  margin-top: 200px;
 `;
-const User = styled.li`
+const People = styled.li`
   margin-bottom: 15px;
   border-radius: 20px;
-  color: #2d2d2d;
-  list-style: none;
-  padding: 10px;
+  padding: 6px;
   border: 1px solid #a6a6a6;
   cursor: pointer;
   &:hover {
-    background: #FAC2D9;
-    width: 100%;
+    background: #fac2d9;
+    transition: 500ms linear;
+    transform: scale(1.1);
   }
 `;
-const Letter = styled.span`
-  padding: 6px 10px;
+const Alpha = styled.span`
+  padding: 3px 8px;
   border-radius: 50%;
-  background: #CFDDDB;
+  background: #2d2d2d;
   color: #000;
   font-weight: 500;
   margin-right: 12px;
@@ -172,8 +179,10 @@ const Name = styled.span`
   font-size: 14px;
 `;
 
-const Year = styled.div``;
-const YearLetter = styled.span`
+const Copy = styled.div`
+  margin-top: 30px;
+`;
+const CopyLetter = styled.span`
   font-size: 10px;
   font-weight: 800;
   background: #c6b1e1;
@@ -181,7 +190,7 @@ const YearLetter = styled.span`
   border-radius: 25px;
   padding: 3px 8px;
 `;
-const AppYear = styled.span`
+const Year = styled.span`
   margin-left: 10px;
   color: #a6a6a6;
   font-size: 12px;

@@ -1,6 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-function Cart() {
+
+
+
+function Cart({ buyItems, total }) {
+  let tax = (total * 10) / 100;
+  console.log(total);
+  // Rending Cart items
+  let renderBuyItems = () => {
+    if (buyItems.length <= 0) {
+      return <ItemTitle>Zero Items</ItemTitle>;
+    } else {
+      return buyItems.map((item) => {
+        return (
+          <Item key={item.id}>
+            <FlexContainer>
+              <Number>{item.number}</Number>
+              <ItemTitle>
+                {item.title}
+                <Multi> x{item.quantity}</Multi>
+              </ItemTitle>
+              <Price>${item.price}</Price>
+            </FlexContainer>
+          </Item>
+        );
+      });
+    }
+  };
+
   return (
     <CartContainer>
       <Wrapper className="wrapper">
@@ -15,23 +42,23 @@ function Cart() {
             </Icon>
           </Head>
           <ItemContainer>
-            <ItemList></ItemList>
+            <ItemList>{renderBuyItems()}</ItemList>
           </ItemContainer>
 
           <TotalContainer>
             <TopSection>
               <SubTotal>
                 <SubTitle>Subtotal</SubTitle>
-                <SubPrice></SubPrice>
+                <SubPrice>${total}</SubPrice>
               </SubTotal>
               <Tax>
                 <TaxTitle>Tax 10%</TaxTitle>
-                <TaxPrice></TaxPrice>
+                <TaxPrice>${tax}</TaxPrice>
               </Tax>
               <Line />
               <Total>
                 <TotalTitle>Total</TotalTitle>
-                <TotalPrice></TotalPrice>
+                <TotalPrice>${total+tax}</TotalPrice>
               </Total>
             </TopSection>
             <BottomSection>
@@ -70,14 +97,11 @@ function Cart() {
 export default Cart;
 
 const CartContainer = styled.aside`
-  width: 25%;
+  width: 30%;
   padding: 10px 0px;
-  background: #000;
 `;
 const Wrapper = styled.div``;
-const Container = styled.div`
-  margin-right: 15px;
-`;
+const Container = styled.div``;
 const Head = styled.div`
   display: flex;
   justify-content: space-between;
@@ -273,3 +297,4 @@ const PlaceOrdered = styled.button`
   font-weight: 600;
   cursor: pointer;
 `;
+
